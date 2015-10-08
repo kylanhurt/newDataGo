@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>Checkbox</title>
+  <link href="css/bootstrap.css" rel="stylesheet" />
+</head>
+<body style="margin-top:12px;">
+  <div class="container" 
+       ng-init="nightDive='night';wreckDive=false">
+    <form name="diveProps">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"
+                 name="nightDive"
+                 ng-model="wreckDive" />
+          Wreck dive?
+          <span>({{wreckDive}})</span>
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"
+                 name="nightDive"
+                 ng-true-value="'night'"
+                 ng-false-value="'day'"
+                 ng-model="nightDive"/>
+          Night dive?
+          <span>({{nightDive}})</span>
+        </label>
+      </div>
+    </form>
+  </div>
+  <script src="angular.min.js"></script>
+</body>
+</html>

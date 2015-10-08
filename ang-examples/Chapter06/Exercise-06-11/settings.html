@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>Settings</title>
+  <link href="css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container-fluid">
+    <h1>My Settings</h1>
+    <div class="row">
+      <div class="col-sm-12">
+        Save my workspace
+        <input type="checkbox" ng-model="saveWks" />
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-sm-12">
+        The "Save my workspace" setting:
+        <input type="checkbox"
+               ng-checked="saveWks" />
+      </div>
+    </div>
+  </div>
+
+  <script src="angular.min.js"></script>
+</body>
+</html>
