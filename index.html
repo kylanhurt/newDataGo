@@ -16,7 +16,7 @@
 
         <!-- Custom styles for this template -->
         <link href="jumbotron.css" rel="stylesheet">
-        <script src="ang-examples/Chapter01/Exercise-01-04/dives.js"></script>
+        <script src="ang-examples/Chapter01/Exercise-01-04/employers.js"></script>
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="docs/assets/js/ie-emulation-modes-warning.js"></script>
@@ -56,13 +56,19 @@
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="row container" id="logbook" ng-controller="empLogCtrl">
-                <div class="col-sm-4" ng-repeat="employer in employers">
+                <div class="col-sm-4" ng-repeat="employer in employers | filter:searchKey">
                     <h2>{{employer.company}}</h2>
                     <p>Location: {{employer.location}}</p>
                 </div>
             </div>
         </div>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-offset-8">
+                    <input class="form-control input-lg" placeholder="Search" ng-model="searchKey" />
+                </div>
+            </div>            
+        </div>
         <div class="container">
             <!-- Example row of columns -->
             <div class="row">
@@ -101,8 +107,10 @@
         <script src="docs/assets/js/ie10-viewport-bug-workaround.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>        
         <script>
+            //currently empLog has no dependencies, it may also define the module that bootstraps the HTML page (ng-app)
             angular.module("empLog",[]).controller('empLogCtrl',EmpLogCtrl);
             
+            //scope acts as glue between view and model
             function EmpLogCtrl ($scope) {
                 $scope.employers = employers;
             }
