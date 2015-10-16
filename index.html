@@ -27,7 +27,7 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body>
+    <body  ng-controller="empLogCtrl">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -55,11 +55,26 @@
 
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
-            <div class="row container" id="logbook" ng-controller="empLogCtrl">
-                <div class="col-sm-4" ng-repeat="employer in employers | filter:searchKey">
-                    <h2>{{employer.company}}</h2>
-                    <p>Location: {{employer.location}}</p>
-                </div>
+            <h1>My Employers (ng-controller)</h1>
+            <div class="row">
+              <div class="col-sm-5">
+                <button class="btn btn-primary btn-lg" ng-click="addEmp()" ng-disabled="!enableAdd()">Add new employer</button>
+                <button class="btn btn-danger btn-lg" ng-click="clearEmps()">Clear Emps</button>
+              </div>
+            </div>            
+            <div class="row container" id="logbook">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Employer</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="employer in employers | filter:searchKey">
+                        <td>{{employer.company}}</td>
+                        <td>{{employer.location}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="container">
@@ -108,11 +123,28 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>        
         <script>
             //currently empLog has no dependencies, it may also define the module that bootstraps the HTML page (ng-app)
-            angular.module("empLog",[]).controller('empLogCtrl',EmpLogCtrl);
+            angular.module("empLog",[]).controller('empLogCtrl',EmpLogCtrl)
             
-            //scope acts as glue between view and model
+            //scope acts as glue between view and model            
             function EmpLogCtrl ($scope) {
-                $scope.employers = employers;
+                var index = 0;
+                $scope.employers = [];                
+                
+                $scope.addEmp = function() {
+                    if($scope.enableAdd()) {
+                        $scope.employers.push(employers[index++]);
+                    }
+                }
+
+                $scope.clearEmps = function() {
+                    $scope.employers = [];
+                    index = 0;
+                }
+
+                $scope.enableAdd = function() {
+                    //returns the value of whether or not there are any entries left
+                    return index < employers.length;
+                }
             }
         </script>
     </body>
