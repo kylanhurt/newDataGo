@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="empLog">
+<html lang="en" ng-app="maintenance">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body  ng-controller="empLogCtrl">
+    <body  ng-controller="empEditCtrl">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -47,34 +47,70 @@
                         <div class="form-group">
                             <input type="password" placeholder="Password" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-success">Sign in</button>
+                        <button type="submit" class="btn btn-success">Login</button>
                     </form>
                 </div><!--/.navbar-collapse -->
             </div>
         </nav>
 
         <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <h1>My Employers (ng-controller)</h1>
-            <div class="row">
-              <div class="col-sm-5">
-                <button class="btn btn-primary btn-lg" ng-click="addEmp()" ng-disabled="!enableAdd()">Add new employer</button>
-                <button class="btn btn-danger btn-lg" ng-click="clearEmps()">Clear Emps</button>
-              </div>
-            </div>            
-            <div class="row container" id="logbook">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Employer</th>
-                            <th>Location</th>
+        <div class="jumbotron col-lg-8 col-lg-offset-2">
+            <div ng-show="view=='list'">
+                <h2>My Employers (ng-controller)</h2>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <button class="btn btn-primary btn-lg" ng-click="startAdd()" >Add new employer</button>
+                    <button class="btn btn-danger btn-lg" ng-click="clearEmps()">Clear Emps</button>
+                  </div>
+                </div>            
+                <div class="row container" id="logbook">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Employer</th>
+                                <th>Location</th>
+                                <th>Supervisor</th>
+                                <th>Position</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tr ng-repeat="employer in employers | filter:searchKey" ng-class="{oddRow: $index % 2 == 0}">
+                            <td>{{$index +1}}</td>
+                            <td>{{employer.company}}</td>
+                            <td>{{employer.location}}</td>
+                            <td>{{employer.supervisor}}</td>
+                            <td>{{employer.position}}</td>
+                            <td>
+                                <div>
+                                <button class="btn btn-warning btn-sm">
+                                  Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm">
+                                  Delete
+                                </button>
+                                </div>
+                            </td>
                         </tr>
-                    </thead>
-                    <tr ng-repeat="employer in employers | filter:searchKey">
-                        <td>{{employer.company}}</td>
-                        <td>{{employer.location}}</td>
-                    </tr>
-                </table>
+                    </table>
+                </div>
+            </div>
+            <div ng-show="view=='add'">
+                <h2>Specify the name of the company where you were employed:</h2>     
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control input-lg" type="text" placeholder="Company" ng-model="empBox.company" data-note="ng-model binds empBox to the scope property with same name"/>
+                        <input class="form-control input-lg" type="text" placeholder="Location" ng-model="empBox.location" />
+                        <input class="form-control input-lg" type="text" placeholder="Supervisor" ng-model="empBox.supervisor" />
+                        <input class="form-control input-lg" type="text" placeholder="Position" ng-model="empBox.position" />
+                    </div>
+                </div>
+                <div class="row" style="margin-top:12px;">
+                    <div class="col-sm-6">
+                        <button class="btn btn-success" ng-disabled="empBox==''" ng-click="add()" >Add</button>
+                        <button class="btn btn-warning btn" ng-click="cancel()">Cancel</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -85,27 +121,6 @@
             </div>            
         </div>
         <div class="container">
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                </div>
-            </div>
-
-            <hr>
-
             <footer>
                 <p>&copy; dataGo 2015</p>
             </footer>
@@ -123,13 +138,35 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>        
         <script>
             //currently empLog has no dependencies, it may also define the module that bootstraps the HTML page (ng-app)
-            angular.module("empLog",[]).controller('empLogCtrl',EmpLogCtrl)
+            angular.module("maintenance",[]).controller('empEditCtrl',EmpEditCtrl)
             
             //scope acts as glue between view and model            
-            function EmpLogCtrl ($scope) {
-                var index = 0;
-                $scope.employers = [];                
+            function EmpEditCtrl ($scope) {
+                $scope.employers = employers;
+                $scope.startAdd = startAdd;
+                $scope.cancel = cancel;
+                $scope.add = add;
+                setView('list');
+                function setView(view) {
+                    $scope.view = view;
+                }
                 
+                function startAdd() {
+                    $scope.empBox = '';
+                    setView('add');
+                }
+                
+                function cancel(){
+                    setView('list');
+                }
+                
+                function add(){
+                    $scope.employers.push($scope.empBox);
+                    setView('list');
+                }
+                
+                /*
+                var index = 0;
                 $scope.addEmp = function() {
                     if($scope.enableAdd()) {
                         $scope.employers.push(employers[index++]);
@@ -145,7 +182,16 @@
                     //returns the value of whether or not there are any entries left
                     return index < employers.length;
                 }
+                */
             }
         </script>
+        <style>
+            .oddRow {
+                background-color: #ddd;
+            }
+            .form-control.input-lg {
+                margin-top: 10px;
+            }
+        </style>
     </body>
 </html>
