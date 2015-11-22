@@ -56,11 +56,9 @@ function MainCtrl(currentSpot) {
 }
 
 function LocationsCtrl(currentSpot) {
-  currentSpot.setCurrentSpot('Locations',
-    'Manage the list of diving locations')
+  currentSpot.setCurrentSpot('Locations','Manage the list of diving locations')
 }
 
 function SitesCtrl(currentSpot) {
-  currentSpot.setCurrentSpot('Sites', 
-    'Manage the list of dive sites')
+  currentSpot.setCurrentSpot('Sites', 'Manage the list of dive sites')
 }
