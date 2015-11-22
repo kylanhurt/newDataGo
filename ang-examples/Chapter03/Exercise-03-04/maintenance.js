@@ -4,6 +4,7 @@
   .controller('locationsCtrl', LocationsCtrl)
   .controller('sitesCtrl', SitesCtrl)
   .factory('currentSpot', currentSpot)
+  .directive('ywActiveMenu', ywActiveMenu)
   .config(function ($routeProvider) {
     $routeProvider.when('/locations', {
       templateUrl: 'views/locations.html',
@@ -18,6 +19,14 @@
       controller: 'mainCtrl'
     });
   });
+
+function ywActiveMenu(currentSpot) {
+    return function(scope, element, attrs) {
+        var activeMenuId = attrs['ywActiveMenu'];
+        var activeTitle = attrs['ywActiveTitle'];
+        currentSpot.setCurrentSpot(activeMenuId, activeTitle);
+    }
+}
 
 function currentSpot() {
   var activeMenuId = '';
@@ -52,13 +61,13 @@ function AdminCtrl($scope, currentSpot) {
 
 
 function MainCtrl(currentSpot) {
-  currentSpot.setCurrentSpot('', '')
+  //currentSpot.setCurrentSpot('', '')
 }
 
 function LocationsCtrl(currentSpot) {
-  currentSpot.setCurrentSpot('Locations','Manage the list of diving locations')
+  //currentSpot.setCurrentSpot('Locations','Manage the list of diving locations')
 }
 
 function SitesCtrl(currentSpot) {
-  currentSpot.setCurrentSpot('Sites', 'Manage the list of dive sites')
+  //currentSpot.setCurrentSpot('Sites', 'Manage the list of dive sites')
 }

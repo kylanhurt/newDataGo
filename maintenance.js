@@ -8,7 +8,7 @@ angular.module('maintenance', ['ngRoute'])
             //I believe the views here will automatically be inserted into the ng-view element
             $routeProvider.when('/locations', {
                 templateUrl: 'views/locations.html',
-                controller: 'locationsCtrl'
+                controller: 'locationsCtrl' //views are set to different controllers!
             });
             $routeProvider.when('/empLocs', {
                 templateUrl: 'views/empLocs.html',
@@ -20,7 +20,15 @@ angular.module('maintenance', ['ngRoute'])
             });
         });
 
-function currentSpot() {
+function empActiveMenu(currentSpot) {
+    return function(scope, element, attrs) {
+        var activeMenuId = attrs['empActiveMenu'];
+        var activeTitle = attrs['empActiveTitle'];
+        currentSpot.setCurrentSpot(activeMenuId, activeTitle);
+    };
+}
+
+function currentSpot() { //since it's a factory service it can act like both a function and object?
     var activeMenuId = '';
     var titleText = '';
     
@@ -54,13 +62,13 @@ function AdminCtrl($scope, currentSpot) {
 
 
 function MainCtrl(currentSpot) {
-    currentSpot.setCurrentSpot('','');
+    //currentSpot.setCurrentSpot('','');
 }
 
 function LocationsCtrl(currentSpot) {
-    currentSpot.setCurrentSpot('Locations', 'Manage the list of employer locations');
+    //currentSpot.setCurrentSpot('Locations', 'Manage the list of employer locations');
 }
 
 function EmpLocsCtrl(currentSpot) {
-    currentSpot.setCurrentSpot('Employers', 'Manage the list of employers');
+    //currentSpot.setCurrentSpot('Employers', 'Manage the list of employers');
 }
