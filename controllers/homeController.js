@@ -3,7 +3,7 @@ angular.module("dataGoMain",['ngRoute'])
         .controller('homeCtrl',HomeCtrl)
         .controller('mainCtrl', MainCtrl)
         .factory('api',api)
-        .constant('apiUrl', 'http://newDataGo/')
+        .constant('apiUrl', 'http://newDataGo/api/')
         .config(function($routeProvider) {
            $routeProvider.when('/', {
                templateUrl: 'views/home.html'
@@ -33,12 +33,11 @@ function MainCtrl($scope) {
 function api ($http, apiUrl) {
     return {
         registerNewUser: function (data) {
-            var url = apiUrl + 'user/register';
+            var url = apiUrl + 'user/register/' + data.email + '/' + data.password;
             console.log('url', url);
             var req = {
-                method: 'POST',
-                url: url,
-                params: data
+                method: 'GET',
+                url: url
             }
             return $http(req);
         }

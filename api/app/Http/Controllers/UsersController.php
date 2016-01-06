@@ -23,9 +23,9 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($email, $password)
     {
-        //
+        return ('email is: ' . $email . ', and password: ' . $password);
     }
 
     /**
