@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'dataGo'),
+            'database'  => env('DB_DATABASE', 'newDataGo'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'S4pient!mysql'),
             'charset'   => 'utf8',
