@@ -1,0 +1,27 @@
+<div class="jumbotron col-lg-8 col-lg-offset-2" ng-controller="homeCtrl">
+    <div class="col-lg-4 col-sm-12" id="home-signup-form">
+        <form>
+            <p>Please fill out the fields below to create an account:</p>
+            <div class="form-group">
+                <label for="registration-email">Email:</label>
+                <input type="email" class="form-control" id="registration-email" ng-model="registrationEmail" placeholder="user@example.com">
+            </div>
+            <div class="form-group">
+                <label for="registration-password">Password:</label>
+                <input type="password" class="form-control" id="registration-password" ng-model="registrationPassword" placeholder="*******">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="loginUser()">Login</button>
+            <button type="submit" class="btn btn-secondary" ng-click="registerUser()">Register</button>
+        </form>
+    </div>
+    <div class="col-lg-6 col-lg-offset-2">
+        <p>Become a dataGo member and you will be given access to the following features:
+            <ul>
+                <li>Submit new entities for consideration and review by other users.</li>
+                <li>Rate and review entities submitted by other users.</li>
+                <li>Participate in discussions regarding organizations and current events.</li>
+                <li>Begin accruing credibility as a user, giving your account more influence.</li>
+            </ul>
+        </p>
+    </div>
+</div>
