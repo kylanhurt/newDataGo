@@ -1,5 +1,5 @@
 //currently empLog has no dependencies, it may also define the module that bootstraps the HTML page (ng-app)
-angular.module("dataGoMain",['ngRoute'])
+angular.module("dataGoMain",['ngRoute','ui.router', 'satellizer'])
         .controller('homeCtrl',HomeCtrl)
         .controller('mainCtrl', MainCtrl)
         .factory('api',api)
