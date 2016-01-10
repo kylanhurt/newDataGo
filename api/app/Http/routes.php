@@ -22,3 +22,6 @@ Route::post('/user/register/', 'UsersController@create');
 Route::get('/csrf', function(){ 
     return csrf_token();
 });
+
+Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+Route::post('authenticate', 'AuthenticateController@authenticate');
