@@ -3,15 +3,16 @@
         <form>
             <p>Please fill out the fields below to create an account:</p>
             <div class="form-group">
-                <label for="registration-email">Email:</label>
-                <input type="email" class="form-control" id="registration-email" ng-model="registrationEmail" placeholder="user@example.com">
+                <label for="login-email">Email:</label>
+                <input type="email" class="form-control" id="login-email" ng-model="loginEmail" placeholder="user@example.com">
             </div>
             <div class="form-group">
-                <label for="registration-password">Password:</label>
-                <input type="password" class="form-control" id="registration-password" ng-model="registrationPassword" placeholder="*******">
+                <label for="login-password">Password:</label>
+                <input type="password" class="form-control" id="login-password" ng-model="loginPassword" placeholder="*******">
             </div>
             <button type="submit" class="btn btn-primary" ng-click="loginUser()">Login</button>
             <button type="submit" class="btn btn-secondary" ng-click="registerUser()">Register</button>
+            <input type="hidden" name="_token" value="{{_token}}">
         </form>
     </div>
     <div class="col-lg-6 col-lg-offset-2">
@@ -24,4 +25,7 @@
             </ul>
         </p>
     </div>
+</div>
+<div class="col-lg-8 col-lg-offset-2" id="home-logged-in-content">
+    You are currently logged in.
 </div>

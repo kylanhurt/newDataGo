@@ -14,11 +14,11 @@ angular.module("dataGoMain",['ngRoute'])
 function HomeCtrl ($scope, api) {
     console.log('in HomeCtrl');
     $scope.registerUser = registerUser;
-    $scope.registrationEmail = '';
-    $scope.registrationPassword = '';
+    $scope.loginEmail = '';
+    $scope.loginPassword = '';
     
     function registerUser() {
-        var data = { email: $scope.registrationEmail, password: $scope.registrationPassword }
+        var data = { email: $scope.loginEmail, password: $scope.loginPassword }
         console.log('HomeCtrl.registerUser')
         api.registerNewUser(data)
             .success(function(response) {
