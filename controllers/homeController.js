@@ -4,10 +4,23 @@ angular.module("dataGoMain",['ngRoute','ui.router', 'satellizer'])
         .controller('mainCtrl', MainCtrl)
         .factory('api',api)
         .constant('apiUrl', 'http://newDataGo/api/')
-        .config(function($routeProvider) {
+        .config(function($routeProvider, $stateProvider, $urlRouterProvider, $authProvider) {
            $routeProvider.when('/', {
                templateUrl: 'views/home.html'
-           }) ;
+           })
+           $authProvider.loginUrl = '/api/authenticate';
+            $urlRouterProvider.otherwise('/auth');
+            $stateProvider
+                .state('auth', {
+                    url: '/auth',
+                    templateUrl: 'index.html',
+                    controller: 'AuthController as auth'
+                })
+                .state('users', {
+                    url: '/users',
+                    templateUrl: 'views/userView.html',
+                    controller: 'UserController as user'
+                });            
         });
 
 //scope acts as glue between view and model            
