@@ -35,8 +35,6 @@ class UsersController extends Controller
         //we will want to create a record and send back JSON object of user's details with success indicator
         $input = $this->request->all();
         
-        
-        
         return $input;
     }
 
