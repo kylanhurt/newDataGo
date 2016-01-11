@@ -13,7 +13,7 @@ angular.module("dataGoMain",['ngRoute','ui.router', 'satellizer'])
             $stateProvider
                 .state('auth', {
                     url: '/auth',
-                    templateUrl: 'index.html',
+                    templateUrl: 'views/authView.html',
                     controller: 'AuthController as auth'
                 })
                 .state('users', {
@@ -37,16 +37,7 @@ function HomeCtrl ($scope, api) {
             .success(function(response) {
                 console.log('registerUser was successful.');
             })
-    }
-    
-    $scope.$watch('$viewContentLoaded', function(){
-        console.log('inside getCSRF');
-         api.getNewCSRF()
-           .success(function(response){
-               console.log('response is ' + response);
-               $scope._token = response;
-           });
-    });     
+    } 
 }
 
 function MainCtrl($scope) {
@@ -64,15 +55,6 @@ function api ($http, apiUrl) {
                 url: url,
                 data: postData
                 
-            }
-            return $http(req);
-        },
-        getNewCSRF: function() {
-            var url = apiUrl + 'csrf';
-            console.log('url is: ' + url);
-            var req = {
-                method: 'GET',
-                url: url
             }
             return $http(req);
         }
