@@ -1,7 +1,7 @@
 angular.module('dataGoMain')
         .controller('UserController', UserController);
 
-    function UserController($http, $auth, $rootScope) {
+    function UserController($http, $auth, $rootScope, $state) {
 
         var vm = this;
 
@@ -24,6 +24,7 @@ angular.module('dataGoMain')
         // a service. For this simpler example we'll leave it here
         vm.logout = function() {
             //$auth.logout() itself will remove satellizer_token from local storage.
+            console.log('in logout function');
             $auth.logout().then(function() {
 
                 // Remove the authenticated user from local storage
@@ -35,6 +36,8 @@ angular.module('dataGoMain')
 
                 // Remove the current user info from rootscope
                 $rootScope.currentUser = null;
+                // Redirect to auth (necessary for Satellizer 0.12.5+)
+                $state.go('auth');
             });
         }        
     }
