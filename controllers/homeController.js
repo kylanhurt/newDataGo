@@ -97,7 +97,10 @@ angular.module("dataGoMain", ['ngRoute', 'ui.router', 'satellizer'])
                         // go to the "main" state which in our case is users
                         $state.go('users');
                     }
+                } else {
+                    $rootScope.authenticated = false;
                 }
+                console.log('after .run clause, $rootScope is ', $rootScope);
             })
         })
 
@@ -119,7 +122,18 @@ function HomeCtrl($scope, api) {
     }
 }
 
-function MainCtrl($scope) {
+function MainCtrl($scope, $rootScope, $state, $auth ) {
+    $scope.loggedIn = $state;
+    $scope.checkState = checkState;
+    console.log('state: ' , $state.is());
+    function checkState($state) {
+        if($state.is('users')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 
 }
 
