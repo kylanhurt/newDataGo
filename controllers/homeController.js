@@ -124,14 +124,10 @@ function HomeCtrl($scope, api) {
 
 function MainCtrl($scope, $rootScope, $state, $auth ) {
     $scope.loggedIn = $state;
-    $scope.checkState = checkState;
-    console.log('state: ' , $state.is());
-    function checkState($state) {
-        if($state.is('users')) {
-            return true;
-        } else {
-            return false;
-        }
+    $scope.checkAuth = checkAuth;
+    console.log('auth: ' , $rootScope.authenticated);
+    function checkAuth($rootScope) {
+        return $rootScope.authenticated;
     }
     
 
