@@ -62,7 +62,12 @@ angular.module("dataGoMain", ['ngRoute', 'ui.router', 'satellizer'])
                     });
         })
         .run(function ($rootScope, $state) {
-
+            console.log(localStorage);
+            if(localStorage.getItem('satellizer_token')) {
+                $rootScope.authenticated = true;
+                console.log('initial load, authenticated = true');
+                $
+            }
             // $stateChangeStart is fired whenever the state changes. We can use some parameters
             // such as toState to hook into details about the state as it is changing
             $rootScope.$on('$stateChangeStart', function (event, toState) {
@@ -97,10 +102,7 @@ angular.module("dataGoMain", ['ngRoute', 'ui.router', 'satellizer'])
                         // go to the "main" state which in our case is users
                         $state.go('users');
                     }
-                } else {
-                    $rootScope.authenticated = false;
                 }
-                console.log('after .run clause, $rootScope is ', $rootScope);
             })
         })
 
@@ -123,13 +125,6 @@ function HomeCtrl($scope, api) {
 }
 
 function MainCtrl($scope, $rootScope, $state, $auth ) {
-    $scope.loggedIn = $state;
-    $scope.checkAuth = checkAuth;
-    console.log('auth: ' , $rootScope.authenticated);
-    function checkAuth($rootScope) {
-        return $rootScope.authenticated;
-    }
-    
 
 }
 
