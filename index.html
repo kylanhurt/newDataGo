@@ -24,7 +24,7 @@
         <![endif]-->
     </head>
     <body ng-controller="mainCtrl" >
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="AuthController">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -35,27 +35,16 @@
                     </button>
                     <a class="navbar-brand" href="#">dataGo</a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <form class="navbar-form navbar-right" ng-show="!authenticated">
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="login-email" ng-model="auth.email">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="login-password" ng-model="auth.password">
-                        </div>
-                        <button type="submit" class="btn btn-success" ng-click="auth.login()">Login</button>
-                    </form>
-                </div><!--/.navbar-collapse -->
+                <ul id="navbar" class="navbar-nav" ui-view="nav-login">
+
+                </ul><!--/.navbar-collapse -->
             </div>
         </nav>
 
         <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div ng-view>
+        <div ui-view="main-cont">
 
         </div>
-        <div class="container">
-            <div ui-view></div>
-        </div> 
         <div class="container">
             <footer>
                 <p>&copy; dataGo 2015</p>
@@ -74,7 +63,6 @@
         <script src="controllers/homeController.js"></script>
         <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>     
         <script src="node_modules/satellizer/satellizer.js"></script>    
-        <script src="controllers/authController.js"></script>
-        <script src="controllers/userController.js"></script>    
+        <script src="controllers/authController.js"></script>  
     </body>
 </html>

@@ -2,6 +2,7 @@
 angular.module("dataGoMain", ['ngRoute', 'ui.router', 'satellizer'])
         .controller('homeCtrl', HomeCtrl)
         .controller('mainCtrl', MainCtrl)
+        .controller('AuthController', AuthController)
         .factory('api', api)
         .constant('apiUrl', 'http://newDataGo/api/')
         .config(function ($routeProvider, $stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
@@ -47,19 +48,27 @@ angular.module("dataGoMain", ['ngRoute', 'ui.router', 'satellizer'])
 
             $authProvider.loginUrl = '/api/authenticate';
 
-            $urlRouterProvider.otherwise('/auth');
+            $urlRouterProvider
+                .when('/', '/state1')
 
             $stateProvider
-                    .state('auth', {
-                        url: '/auth',
-                        templateUrl: 'views/authView.html',
-                        controller: 'AuthController as auth'
-                    })
-                    .state('users', {
-                        url: '/users',
-                        templateUrl: 'views/userView.html',
-                        controller: 'UserController as user'
-                    });
+                .state('auth', {
+                    views:{
+                        'nav-login': {
+                            templateUrl: 'views/authView.html',
+                            controller: 'AuthController as auth'                                
+                        }
+                    }
+
+                })
+                .state('users', {
+                        views: {
+                            'nav-login':{
+                                templateUrl: 'views/userView.html',
+                                controller: 'UserController as user'                                     
+                            }
+                    }
+                });
         })
         .run(function ($rootScope, $state) {
             console.log(localStorage);
@@ -143,4 +152,92 @@ function api($http, apiUrl) {
             return $http(req);
         }
     }
+}
+
+function AuthController($auth, $state, $http, $rootScope) {
+
+    var vm = this;
+
+    vm.loginError = false;
+    vm.loginErrorText;
+    vm.users;
+    vm.error;    
+    
+    vm.login = function() {
+
+        var credentials = {
+            email: vm.email,
+            password: vm.password
+        }
+
+        // Use Satellizer's $auth service to login
+        $auth.login(credentials).then(function() {
+
+            // Return an $http request for the now authenticated
+            // user so that we can flatten the promise chain
+            return $http.get('api/authenticate/user')
+        .then(function(response) {
+
+            // Stringify the returned data to prepare it
+            // to go into local storage
+            var user = JSON.stringify(response.data.user);
+
+            // Set the stringified user data into local storage
+            localStorage.setItem('user', user);
+
+            // The user's authenticated state gets flipped to
+            // true so we can now show parts of the UI that rely
+            // on the user being logged in
+            $rootScope.authenticated = true;
+
+            // Putting the user's data on $rootScope allows
+            // us to access it anywhere across the app
+            $rootScope.currentUser = response.data.user;
+
+            // Everything worked out so we can now redirect to
+            // the users state to view the data
+            $state.go('users');
+            });
+        }, 
+            // Handle errors
+            function(error) {
+            vm.loginError = true;
+            vm.loginErrorText = error.data.error;
+        });
+    }
+    
+    console.log('in Auth(User)Controller');
+
+        vm.getUsers = function () {
+
+            // This request will hit the index method in the AuthenticateController
+            // on the Laravel side and will return the list of users
+            $http.get('api/authenticate').success(function (users) {
+                vm.users = users;
+            }).error(function (error) {
+                vm.error = error;
+            });
+        }
+        
+        // We would normally put the logout method in the same
+        // spot as the login method, ideally extracted out into
+        // a service. For this simpler example we'll leave it here
+        vm.logout = function() {
+            //$auth.logout() itself will remove satellizer_token from local storage.
+            console.log('in logout function');
+            $auth.logout().then(function() {
+
+                // Remove the authenticated user from local storage
+                localStorage.removeItem('user');
+
+                // Flip authenticated to false so that we no longer
+                // show UI elements dependant on the user being logged in
+                $rootScope.authenticated = false;
+
+                // Remove the current user info from rootscope
+                $rootScope.currentUser = null;
+                // Redirect to auth (necessary for Satellizer 0.12.5+)
+                $state.go('auth');
+            });
+        }     
 }
