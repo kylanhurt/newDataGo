@@ -35,9 +35,18 @@
                     </button>
                     <a class="navbar-brand" href="#">dataGo</a>
                 </div>
-                <ul id="navbar" class="navbar-nav" ui-view="nav-login">
-
-                </ul><!--/.navbar-collapse -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="authenticated"><a href="#" ng-click="logout()" style="color:white;">Logout</a></li>                  
+                    <form class="navbar-form navbar-right" ng-hide="authenticated">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="login-email" ng-model="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="login-password" ng-model="password">
+                        </div>
+                        <button type="submit" class="btn btn-success" ng-click="login()">Login</button>
+                    </form>
+                </ul>
             </div>
         </nav>
 
