@@ -1,4 +1,4 @@
-<div class="jumbotron col-lg-8 col-lg-offset-2" ng-controller="homeCtrl">
+<div class="jumbotron col-lg-8 col-lg-offset-2" ng-hide="authenticated">
     <div class="col-lg-4 col-sm-12" id="home-signup-form">
         <form>
             <p>Please fill out the fields below to create an account:</p>
@@ -16,16 +16,15 @@
         </form>
     </div>
     <div class="col-lg-6 col-lg-offset-2">
-        <p>Become a dataGo member and you will be given access to the following features:
+        <p>Become a dataGo member and you will be given access to the following features:</p>
             <ul>
                 <li>Submit new entities for consideration and review by other users.</li>
                 <li>Rate and review entities submitted by other users.</li>
                 <li>Participate in discussions regarding organizations and current events.</li>
                 <li>Begin accruing credibility as a user, giving your account more influence.</li>
             </ul>
-        </p>
     </div>
 </div>
-<div class="col-lg-8 col-lg-offset-2" id="home-logged-in-content">
+<div class="col-lg-8 col-lg-offset-2" id="home-logged-in-content" ng-show="authenticated">
     You are currently logged in.
 </div>
