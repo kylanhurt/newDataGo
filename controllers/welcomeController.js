@@ -7,7 +7,6 @@ angular.module('dataGoMain')
 
             function registerUser() {
                 var data = {email: $scope.loginEmail, password: $scope.loginPassword}
-                console.log('HomeCtrl.registerUser')
                 dataGoAPI.registerNewUser(data)
                         .success(function (response) {
                             console.log('registerUser was successful.');
