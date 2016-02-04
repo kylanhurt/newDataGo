@@ -1,5 +1,5 @@
 angular.module('dataGoMain')
-    .controller('WelcomeController', ['$scope', '$http', 'dataGoAPI',function($scope, $http, dataGoAPI){
+    .controller('WelcomeController', ['$scope', '$http', 'dataGoAPI', '$rootScope',function($scope, $http, dataGoAPI, $rootScope){
         console.log('in HomeCtrl');
         $scope.registerUser = registerUser;
         $scope.loginEmail = '';
