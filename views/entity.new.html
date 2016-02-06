@@ -1,0 +1,16 @@
+<div class="col-lg-8 col-lg-offset-2 main-form">
+    <h2>Entity Submission</h2>
+    <p>To start the creation and submission of a new entity, please fill out the form below:</p>
+    <form id="entity-submission-form">
+        <div class="form-group">
+            <label for="entityName">Entity Name:</label>
+            <input class="form-control" name="entityName" ng-model="entityName" placeholder="eg. McDonald's" />
+            <span class="help-block" ng-show="entitySubmitError.entityName">{{entitySubmitError.entityName}}</span>
+        </div>
+        <div class="form-group">
+            <label for="entityWebsite">Entity's Official Website (optional):</label>
+            <input class="form-control" name="entityWebsite" ng-model="entityWebste" placeholder="www.McDonalds.com" />
+            <span class="help-block" ng-show="entitySubmitError.entityWebsite">{{entitySubmitError.entityWebsite}}</span>
+        </div>        
+    </form>
+</div>

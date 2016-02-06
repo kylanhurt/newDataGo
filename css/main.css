@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : kylan
 */
 
+.navbar.navbar-fixed-top { margin-bottom: 20px;}
+
+footer { margin-top: 20px;}
+
 .oddRow {
     background-color: #ddd;
 }
@@ -17,4 +21,28 @@ and open the template in the editor.
 
 #add button, #edit button {
     margin-top: 10px;
+}
+
+.jumbotron p a {
+    font-size: 17.5px;
+    padding: 11px 19px;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #006dcc;
+    background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+    background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+    background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+    background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+    background-repeat: repeat-x;
+    border-color: #0044cc #0044cc #002a80;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.main-form {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #eee;
 }

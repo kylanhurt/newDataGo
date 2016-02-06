@@ -26,6 +26,8 @@
             </ul>
     </div>
 </div>
-<div class="col-lg-8 col-lg-offset-2" id="home-logged-in-content" ng-show="authenticated">
-    You are currently logged in.
+<div class="jumbotron col-lg-8 col-lg-offset-2" id="home-logged-in-content" ng-show="authenticated">
+    <h1>Welcome to dataGo<span ng-show="$rootScope.currentUser.username">, {{username}}</span>!</h1>
+    <p>To submit a new entity to our database, please click the button below...</p>
+    <p><a class="btn btn-primary btn-large" ui-sref="submit-new-entity">Submit New Entity</a></p>
 </div>
