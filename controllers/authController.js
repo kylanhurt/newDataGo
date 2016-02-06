@@ -14,18 +14,12 @@ angular.module('dataGoMain')
         }
 
         $auth.login(credentials).then(function() {
-
             return $http.get('api/authenticate/user')
         .then(function(response) {
-
             var user = JSON.stringify(response.data.user);
-
             localStorage.setItem('user', user);
-
             $rootScope.authenticated = true;
-
             $rootScope.currentUser = response.data.user;
-
             });
         }, 
             // Handle errors
@@ -40,11 +34,8 @@ angular.module('dataGoMain')
         //$auth.logout() itself will remove satellizer_token from local storage.
         console.log('in logout function');
         $auth.logout().then(function() {
-
             localStorage.removeItem('user');
-
             $rootScope.authenticated = false;
-
             $rootScope.currentUser = null;
 
         });

@@ -4,7 +4,7 @@
     <form id="entity-submission-form">
         <div class="form-group">
             <label for="entityName">Entity Name:</label>
-            <input class="form-control" name="entityName" ng-model="entityName" placeholder="eg. McDonald's" />
+            <input class="form-control" name="entityName" ng-model="entityName" placeholder="eg. McDonald's" ng-change="searchEntities()">
             <span class="help-block" ng-show="entitySubmitError.entityName">{{entitySubmitError.entityName}}</span>
         </div>
         <div class="form-group">

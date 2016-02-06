@@ -4,9 +4,154 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3907bd962e0923f1f502fbe8ec8c45a0",
-    "content-hash": "0ba1b3626917d679f2ad22cf634c8cf9",
+    "hash": "93189893da6bfb14e056f8e5e52580c4",
+    "content-hash": "e68910e13023579f5c5ac3c3f9cb3e67",
     "packages": [
+        {
+            "name": "addwiki/mediawiki-api-base",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/addwiki/mediawiki-api-base.git",
+                "reference": "89ec264148a0e085ae2d317faeb5550993bd8962"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/addwiki/mediawiki-api-base/zipball/89ec264148a0e085ae2d317faeb5550993bd8962",
+                "reference": "89ec264148a0e085ae2d317faeb5550993bd8962",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "guzzlehttp/promises": "~1.0",
+                "php": ">=5.5",
+                "psr/log": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mediawiki\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Addshore"
+                }
+            ],
+            "description": "A basic Mediawiki api base lib",
+            "keywords": [
+                "mediawiki"
+            ],
+            "time": "2016-01-18 11:00:11"
+        },
+        {
+            "name": "addwiki/mediawiki-datamodel",
+            "version": "0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/addwiki/mediawiki-datamodel.git",
+                "reference": "bbc2603db84c87e098907039de060c75d971b5f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/addwiki/mediawiki-datamodel/zipball/bbc2603db84c87e098907039de060c75d971b5f4",
+                "reference": "bbc2603db84c87e098907039de060c75d971b5f4",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mediawiki\\DataModel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Addshore"
+                }
+            ],
+            "description": "A Mediawiki datamodel",
+            "keywords": [
+                "mediawiki"
+            ],
+            "time": "2015-09-04 12:48:13"
+        },
+        {
+            "name": "addwiki/wikibase-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/addwiki/wikibase-api.git",
+                "reference": "01ca4d657dd28f36bdf99b274ae12968168a108b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/addwiki/wikibase-api/zipball/01ca4d657dd28f36bdf99b274ae12968168a108b",
+                "reference": "01ca4d657dd28f36bdf99b274ae12968168a108b",
+                "shasum": ""
+            },
+            "require": {
+                "addwiki/mediawiki-api-base": "~2.0",
+                "addwiki/mediawiki-datamodel": "~0.5.0|~0.6.0",
+                "serialization/serialization": "~3.2",
+                "wikibase/data-model": "~4.2",
+                "wikibase/data-model-serialization": "~2.0",
+                "wikibase/data-model-services": "~3.0"
+            },
+            "require-dev": {
+                "data-values/common": "~0.3.0",
+                "data-values/data-values": "~1.0.0",
+                "data-values/geo": "~1.0|~0.2.0",
+                "data-values/number": "~0.5.0",
+                "data-values/serialization": "~1.0",
+                "data-values/time": "~0.8.0",
+                "data-values/validators": "~0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wikibase\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Addshore"
+                }
+            ],
+            "description": "A Wikibase api lib",
+            "keywords": [
+                "mediawiki",
+                "wikibase",
+                "wikidata"
+            ],
+            "time": "2016-01-31 20:58:50"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",
@@ -118,6 +263,177 @@
             "time": "2015-07-23 00:54:12"
         },
         {
+            "name": "data-values/data-values",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataValues/DataValues.git",
+                "reference": "de2b9abdbc26c4c393b25aa621619dfe3fc10fdc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataValues/DataValues/zipball/de2b9abdbc26c4c393b25aa621619dfe3fc10fdc",
+                "reference": "de2b9abdbc26c4c393b25aa621619dfe3fc10fdc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "replace": {
+                "mediawiki/data-values": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "DataValues.php"
+                ],
+                "classmap": [
+                    "src/interfaces",
+                    "tests/phpunit/DataValueTest.php"
+                ],
+                "psr-0": {
+                    "DataValues\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Defines the DataValue interface and some trivial implementations",
+            "homepage": "https://github.com/DataValues/DataValues",
+            "keywords": [
+                "datavalues",
+                "wikibase",
+                "wikidata"
+            ],
+            "time": "2014-09-26 07:02:27"
+        },
+        {
+            "name": "data-values/serialization",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataValues/Serialization.git",
+                "reference": "fdd00409bcd036ac22f1640652af0f387f4fa8be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataValues/Serialization/zipball/fdd00409bcd036ac22f1640652af0f387f4fa8be",
+                "reference": "fdd00409bcd036ac22f1640652af0f387f4fa8be",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/data-values": "~1.0|~0.1",
+                "php": ">=5.3.0",
+                "serialization/serialization": "~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DataValues\\Serializers\\": "src/Serializers",
+                    "DataValues\\Deserializers\\": "src/Deserializers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Serializers and deserializers for DataValue implementations",
+            "homepage": "https://github.com/DataValues/Serialization",
+            "keywords": [
+                "datavalues",
+                "deserializers",
+                "serialization",
+                "serializers",
+                "wikidata"
+            ],
+            "time": "2015-08-05 09:15:00"
+        },
+        {
+            "name": "diff/diff",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wmde/Diff.git",
+                "reference": "779bd922b53a4483f722c546621c0a401e3f2900"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wmde/Diff/zipball/779bd922b53a4483f722c546621c0a401e3f2900",
+                "reference": "779bd922b53a4483f722c546621c0a401e3f2900",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "~2.1",
+                "squizlabs/php_codesniffer": "~2.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Diff.php"
+                ],
+                "psr-4": {
+                    "Diff\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Small standalone library for representing differences between data structures, computing such differences, and applying them as patches",
+            "homepage": "https://github.com/wmde/Diff",
+            "keywords": [
+                "diff",
+                "diffing",
+                "diffop",
+                "patching",
+                "wikidata"
+            ],
+            "time": "2015-03-17 15:21:21"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -216,6 +532,177 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "c6851d6e48f63b69357cbfa55bca116448140e0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/c6851d6e48f63b69357cbfa55bca116448140e0c",
+                "reference": "c6851d6e48f63b69357cbfa55bca116448140e0c",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "~1.0",
+                "guzzlehttp/psr7": "~1.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "~4.0",
+                "psr/log": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.1-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2015-11-23 00:47:50"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "b1e1c0d55f8083c71eda2c28c12a228d708294ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/b1e1c0d55f8083c71eda2c28c12a228d708294ea",
+                "reference": "b1e1c0d55f8083c71eda2c28c12a228d708294ea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2015-10-15 22:28:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5d04bdd2881ac89abde1fb78cc234bce24327bb",
+                "reference": "f5d04bdd2881ac89abde1fb78cc234bce24327bb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "PSR-7 message implementation",
+            "keywords": [
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2016-01-23 01:23:02"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -990,6 +1477,55 @@
             "time": "2015-01-28 21:50:33"
         },
         {
+            "name": "psr/http-message",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2015-05-04 20:22:00"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -1098,6 +1634,62 @@
                 "shell"
             ],
             "time": "2015-11-12 16:18:56"
+        },
+        {
+            "name": "serialization/serialization",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wmde/Serialization.git",
+                "reference": "8e06ec58c8f52079942c9cb2f30b2260f62dc1f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wmde/Serialization/zipball/8e06ec58c8f52079942c9cb2f30b2260f62dc1f4",
+                "reference": "8e06ec58c8f52079942c9cb2f30b2260f62dc1f4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Serialization.php"
+                ],
+                "psr-4": {
+                    "Deserializers\\": "src/Deserializers/",
+                    "Serializers\\": "src/Serializers/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library defining a Serializer and a Deserializer interface and basic utilities",
+            "homepage": "https://github.com/wmde/Serialization",
+            "keywords": [
+                "deserialization",
+                "deserializer",
+                "serialization",
+                "serializer",
+                "unserialization",
+                "wikidata"
+            ],
+            "time": "2014-08-19 01:53:31"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2082,6 +2674,188 @@
                 "environment"
             ],
             "time": "2015-05-30 15:59:26"
+        },
+        {
+            "name": "wikibase/data-model",
+            "version": "4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wmde/WikibaseDataModel.git",
+                "reference": "7df08f19f6efe1233b653af1cad370cfee5986dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wmde/WikibaseDataModel/zipball/7df08f19f6efe1233b653af1cad370cfee5986dc",
+                "reference": "7df08f19f6efe1233b653af1cad370cfee5986dc",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/data-values": "~0.1|~1.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "ockcyp/covers-validator": "~0.2.0",
+                "phpmd/phpmd": "~2.3",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.4.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "WikibaseDataModel.php"
+                ],
+                "psr-4": {
+                    "Wikibase\\DataModel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Thiemo Mättig"
+                },
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com"
+                }
+            ],
+            "description": "PHP implementation of the Wikibase DataModel",
+            "homepage": "https://github.com/wmde/WikibaseDataModel",
+            "keywords": [
+                "DataModel",
+                "wikibase",
+                "wikidata"
+            ],
+            "time": "2016-01-20 15:16:14"
+        },
+        {
+            "name": "wikibase/data-model-serialization",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wmde/WikibaseDataModelSerialization.git",
+                "reference": "b903fe85c15cc2fd9643704f24520196fa07ce39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wmde/WikibaseDataModelSerialization/zipball/b903fe85c15cc2fd9643704f24520196fa07ce39",
+                "reference": "b903fe85c15cc2fd9643704f24520196fa07ce39",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/serialization": "~1.0",
+                "php": ">=5.3.0",
+                "serialization/serialization": "~3.1",
+                "wikibase/data-model": "~4.2"
+            },
+            "require-dev": {
+                "data-values/common": "~0.2",
+                "data-values/geo": "~1.0|~0.1",
+                "data-values/number": "~0.2",
+                "data-values/time": "~0.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wikibase\\DataModel\\": "src/"
+                },
+                "files": [
+                    "mediawiki.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas PT",
+                    "homepage": "https://github.com/Tpt"
+                },
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com"
+                }
+            ],
+            "description": "Serializers and deserializers for the Wikibase DataModel",
+            "homepage": "https://github.com/wmde/WikibaseDataModelSerialization",
+            "keywords": [
+                "DataModel",
+                "deserializers",
+                "serialization",
+                "serializers",
+                "wikibase",
+                "wikidata"
+            ],
+            "time": "2015-08-30 16:42:54"
+        },
+        {
+            "name": "wikibase/data-model-services",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wmde/WikibaseDataModelServices.git",
+                "reference": "3d05decaf6865b4dd71149a639ed72236f99ff08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wmde/WikibaseDataModelServices/zipball/3d05decaf6865b4dd71149a639ed72236f99ff08",
+                "reference": "3d05decaf6865b4dd71149a639ed72236f99ff08",
+                "shasum": ""
+            },
+            "require": {
+                "data-values/data-values": "~0.1|~1.0",
+                "diff/diff": "~2.0|~1.0",
+                "php": ">=5.3.0",
+                "wikibase/data-model": "~4.2"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "~2.3",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wikibase\\DataModel\\Services\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com"
+                }
+            ],
+            "description": "Services around the Wikibase DataModel",
+            "homepage": "https://github.com/wmde/WikibaseDataModelServices",
+            "keywords": [
+                "DataModel",
+                "wikibase",
+                "wikidata"
+            ],
+            "time": "2015-12-03 14:57:58"
         }
     ],
     "packages-dev": [
@@ -3313,7 +4087,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "addwiki/wikibase-api": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
