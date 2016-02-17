@@ -1,19 +1,21 @@
 angular.module('dataGoMain')
-    .controller('entitySubmissionController',['dataGoAPI', function ($auth, $state, $http, $rootScope,$scope, wikiService, dataGoAPI) {
+    .controller('entitySubmissionController',function ($http, dataGoAPI, $scope) {
     var vm = this;
-    $scope.entityName = "McDonalds";
-    var entityName = $scope.entityName;
-    $scope.searchEntities = searchEntities;    
+    $scope.entity = {
+        name: "McDonalds",
+        searchEnities : searchEntities,
+    };
+    var entityName = $scope.entity.name;  
     $scope.$watch('entityName', function() {
-       dataGoAPI.apiReq('/entity/', entityName, 'GET'); 
+       dataGoAPI.apiReq('/entity/' + entityName, entityName, 'GET'); 
     });
     
     function searchEntities ( wikiApiUrl ) {
-        var url = wikiApiUrl + $scope.entityName;        
+        var url = wikiApiUrl + encodeURI($scope.entityName);        
         var req = {
             method: 'GET',
             url: url
         };
         return $http(req);
     }
-}]);
+});
