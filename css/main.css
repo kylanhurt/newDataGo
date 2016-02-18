@@ -46,3 +46,7 @@ footer { margin-top: 20px;}
     border-radius: 5px;
     background-color: #eee;
 }
+
+.main-form input {
+    width: 50%;
+}

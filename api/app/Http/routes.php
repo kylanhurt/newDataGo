@@ -11,7 +11,7 @@
 |
 */
 
-
+Route::resource('entity', 'EntitiesController');
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,11 +29,15 @@ Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']])
 Route::post('authenticate', 'AuthenticateController@authenticate');
 Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
 
-Route::get('/entity/{entityName}', function($entityName){
-    $entity_client = new Guzzle\Service\Client('http://en.wikipedia.org/w/api.php?pllimit=2&action=query&prop=extracts&format=jsonfm&formatversion=2&redirects=1&exintro=&explaintext=titles=');
-    $response = $entity_client->get($entityName)->send();
-    echo $response->getBody();
-});
+
+
+/*Route::get('/entity/{entityName}', function($entityName){
+    //$entity_client = new Guzzle\Service\Client('http://en.wikipedia.org/w/api.php?pllimit=2&action=query&prop=extracts&format=jsonfm&formatversion=2&redirects=1&exintro=&explaintext=titles=');
+    //$response = $entity_client->get($entityName)->send();
+    //echo $response->getBody();
+    $wikipedia = new \Casinelli\Wikipedia\Wikipedia;
+    return $wikipedia->search("Rome")->getSentences(5);
+});*/
 
 Route::get('users/{username}', function($username) {
     $username_client = new Guzzle\Service\Client('https://api.github.com/');

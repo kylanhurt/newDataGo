@@ -1,4 +1,4 @@
-<div class="col-lg-8 col-lg-offset-2 main-form">
+<div class="col-lg-6 col-lg-offset-3 main-form" style="clear:both;">
     <h2>Entity Submission</h2>
     <p>To start the creation and submission of a new entity, please fill out the form below:</p>
     <form id="entity-submission-form">
@@ -12,5 +12,6 @@
             <input class="form-control" name="entityWebsite" ng-model="entityWebste" placeholder="www.McDonalds.com" />
             <span class="help-block" ng-show="entitySubmitError.entityWebsite">{{entitySubmitError.entityWebsite}}</span>
         </div>        
+        <button type="submit" class="btn btn-success" ng-click="submitNewEntity()">Submit New Entity</button>
     </form>
 </div>
