@@ -12,7 +12,10 @@ class AddWebsiteAndUserEntitiesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('entities', function($table) {
+            $table->mediumInteger('created_by')->after('description');
+            $table->string('website', 200)->after('description');
+        });
     }
 
     /**
@@ -22,6 +25,10 @@ class AddWebsiteAndUserEntitiesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('entities', function($table)
+        {
+            $table->dropColumn('created_by');
+            $table->dropColumn('website');
+        });
     }
 }
