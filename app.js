@@ -76,7 +76,7 @@ function dataGoAPI($http, apiUrl) {
             }
             return $http(req);
         },
-        apiReq: function (endpoint, data, method) {
+        apiReq: function (endpoint, method, data) {
             var url = apiUrl + endpoint;
             var data = data;
             var req = {

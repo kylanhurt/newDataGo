@@ -57,6 +57,7 @@ class entitiesController extends Controller
                 $resp['message'] = "Enity successfully submitted.";
             }
         }
+        return $resp;
     }
 
     /**
