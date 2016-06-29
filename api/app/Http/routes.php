@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/about', 'PagesController@about');
 
-//Route::post('/user/register/', 'UsersController@create');
+Route::post('/user/register/', 'UsersController@create');
 
 Route::get('/csrf', function(){ 
     return csrf_token();
