@@ -3,7 +3,7 @@ angular.module("dataGoMain",['ngRoute'])
         .controller('homeCtrl',HomeCtrl)
         .controller('mainCtrl', MainCtrl)
         .factory('api',api)
-        .constant('apiUrl', 'http://newDataGo/api/')
+        .constant('apiUrl', 'http://localhost/api/')
         .config(function($routeProvider) {
            $routeProvider.when('/', {
                templateUrl: 'views/home.html'
